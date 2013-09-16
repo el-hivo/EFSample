@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="294b2094bf0f4a21ae43dbad1d6a9c48" Name="Sales">
+        <EntityTypeShape EntityType="AwModel.CountryRegionCurrency" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="AwModel.CreditCard" Width="1.5" PointX="7.5" PointY="9.875" />
+        <EntityTypeShape EntityType="AwModel.Currency" Width="1.5" PointX="5.25" PointY="4.5" />
+        <EntityTypeShape EntityType="AwModel.CurrencyRate" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="AwModel.Customer" Width="1.5" PointX="7.5" PointY="13.625" />
+        <EntityTypeShape EntityType="AwModel.PersonCreditCard" Width="1.5" PointX="9.75" PointY="6.25" />
+        <EntityTypeShape EntityType="AwModel.SalesOrderDetail" Width="1.5" PointX="12" PointY="11.25" />
+        <EntityTypeShape EntityType="AwModel.SalesOrderHeader" Width="1.5" PointX="9.75" PointY="9.25" />
+        <EntityTypeShape EntityType="AwModel.SalesOrderHeaderSalesReason" Width="1.5" PointX="15" PointY="12" />
+        <EntityTypeShape EntityType="AwModel.SalesPerson" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="AwModel.SalesPersonQuotaHistory" Width="1.5" PointX="5.25" PointY="12.125" />
+        <EntityTypeShape EntityType="AwModel.SalesReason" Width="1.5" PointX="12.75" PointY="8" />
+        <EntityTypeShape EntityType="AwModel.SalesTaxRate" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="AwModel.SalesTerritory" Width="1.5" PointX="0.75" PointY="9.25" />
+        <EntityTypeShape EntityType="AwModel.SalesTerritoryHistory" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="AwModel.ShoppingCartItem" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="AwModel.SpecialOffer" Width="1.5" PointX="7.5" PointY="18.375" />
+        <EntityTypeShape EntityType="AwModel.SpecialOfferProduct" Width="1.5" PointX="9.75" PointY="18.875" />
+        <EntityTypeShape EntityType="AwModel.Store" Width="1.5" PointX="5.25" PointY="18.375" />
+        <AssociationConnector Association="AwModel.FK_CountryRegionCurrency_Currency_CurrencyCode" />
+        <AssociationConnector Association="AwModel.FK_PersonCreditCard_CreditCard_CreditCardID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_CreditCard_CreditCardID" />
+        <AssociationConnector Association="AwModel.FK_CurrencyRate_Currency_FromCurrencyCode" />
+        <AssociationConnector Association="AwModel.FK_CurrencyRate_Currency_ToCurrencyCode" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_CurrencyRate_CurrencyRateID" />
+        <AssociationConnector Association="AwModel.FK_Customer_SalesTerritory_TerritoryID" />
+        <AssociationConnector Association="AwModel.FK_Customer_Store_StoreID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_Customer_CustomerID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderDetail_SalesOrderHeader_SalesOrderID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderDetail_SpecialOfferProduct_SpecialOfferIDProductID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_SalesPerson_SalesPersonID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_SalesTerritory_TerritoryID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeaderSalesReason_SalesReason_SalesReasonID" />
+        <AssociationConnector Association="AwModel.FK_SalesPerson_SalesTerritory_TerritoryID" />
+        <AssociationConnector Association="AwModel.FK_SalesPersonQuotaHistory_SalesPerson_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_SalesTerritoryHistory_SalesPerson_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_Store_SalesPerson_SalesPersonID" />
+        <AssociationConnector Association="AwModel.FK_SalesTerritoryHistory_SalesTerritory_TerritoryID" />
+        <AssociationConnector Association="AwModel.FK_SpecialOfferProduct_SpecialOffer_SpecialOfferID" />
+      </Diagram>
+      <Diagram DiagramId="cd896584ee3f4137935ecb272040b80d" Name="Persons" >
+        <EntityTypeShape EntityType="AwModel.Address" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="AwModel.AddressType" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="AwModel.BusinessEntity" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AwModel.BusinessEntityAddress" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="AwModel.BusinessEntityContact" Width="1.5" PointX="5.25" PointY="9.5" />
+        <EntityTypeShape EntityType="AwModel.ContactType" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="AwModel.CountryRegion" Width="1.5" PointX="1.5" PointY="23.375" />
+        <EntityTypeShape EntityType="AwModel.EmailAddress" Width="1.5" PointX="5.25" PointY="13" />
+        <EntityTypeShape EntityType="AwModel.Password" Width="1.5" PointX="5.25" PointY="15.875" />
+        <EntityTypeShape EntityType="AwModel.Person" Width="1.5" PointX="3" PointY="13" />
+        <EntityTypeShape EntityType="AwModel.PersonPhone" Width="1.5" PointX="8.25" PointY="14.375" />
+        <EntityTypeShape EntityType="AwModel.PhoneNumberType" Width="1.5" PointX="6" PointY="19.625" />
+        <EntityTypeShape EntityType="AwModel.StateProvince" Width="1.5" PointX="1.5" PointY="18.875" />
+        <AssociationConnector Association="AwModel.FK_Address_StateProvince_StateProvinceID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_Address_AddressID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_AddressType_AddressTypeID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityContact_BusinessEntity_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_Person_BusinessEntity_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityContact_ContactType_ContactTypeID" />
+        <AssociationConnector Association="AwModel.FK_BusinessEntityContact_Person_PersonID" />
+        <AssociationConnector Association="AwModel.FK_StateProvince_CountryRegion_CountryRegionCode" />
+        <AssociationConnector Association="AwModel.FK_EmailAddress_Person_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_Password_Person_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_PersonPhone_Person_BusinessEntityID" />
+        <AssociationConnector Association="AwModel.FK_PersonPhone_PhoneNumberType_PhoneNumberTypeID" />
+      </Diagram>
+      <Diagram DiagramId="a20d21ae06a9492cb731bbcd465c8bea" Name="Production" >
+        <EntityTypeShape EntityType="AwModel.Product" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="AwModel.ProductCategory" Width="1.5" PointX="1.5" PointY="11" />
+        <EntityTypeShape EntityType="AwModel.ProductModel" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AwModel.ProductSubcategory" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="AwModel.UnitMeasure" Width="1.5" PointX="0.75" PointY="4.5" />
+        <AssociationConnector Association="AwModel.FK_Product_ProductModel_ProductModelID" />
+        <AssociationConnector Association="AwModel.FK_Product_ProductSubcategory_ProductSubcategoryID" />
+        <AssociationConnector Association="AwModel.FK_Product_UnitMeasure_SizeUnitMeasureCode" />
+        <AssociationConnector Association="AwModel.FK_Product_UnitMeasure_WeightUnitMeasureCode" />
+        <AssociationConnector Association="AwModel.FK_ProductSubcategory_ProductCategory_ProductCategoryID" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
