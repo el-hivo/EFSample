@@ -1408,7 +1408,6 @@
             <End Role="SpecialOffer" EntitySet="SpecialOffer" />
             <End Role="SpecialOfferProduct" EntitySet="SpecialOfferProduct" />
           </AssociationSet>
-          <EntitySet Name="Address" EntityType="AwModel.Address" />
           <EntitySet Name="AddressType" EntityType="AwModel.AddressType" />
           <EntitySet Name="BusinessEntity" EntityType="AwModel.BusinessEntity" />
           <EntitySet Name="BusinessEntityAddress" EntityType="AwModel.BusinessEntityAddress" />
@@ -1421,22 +1420,6 @@
           <EntitySet Name="PersonPhone" EntityType="AwModel.PersonPhone" />
           <EntitySet Name="PhoneNumberType" EntityType="AwModel.PhoneNumberType" />
           <EntitySet Name="StateProvince" EntityType="AwModel.StateProvince" />
-          <AssociationSet Name="FK_Address_StateProvince_StateProvinceID" Association="AwModel.FK_Address_StateProvince_StateProvinceID">
-            <End Role="StateProvince" EntitySet="StateProvince" />
-            <End Role="Address" EntitySet="Address" />
-          </AssociationSet>
-          <AssociationSet Name="FK_BusinessEntityAddress_Address_AddressID" Association="AwModel.FK_BusinessEntityAddress_Address_AddressID">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_BillToAddressID" Association="AwModel.FK_SalesOrderHeader_Address_BillToAddressID">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipToAddressID" Association="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
-          </AssociationSet>
           <AssociationSet Name="FK_BusinessEntityAddress_AddressType_AddressTypeID" Association="AwModel.FK_BusinessEntityAddress_AddressType_AddressTypeID">
             <End Role="AddressType" EntitySet="AddressType" />
             <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
@@ -1541,6 +1524,23 @@
           <AssociationSet Name="FK_ProductSubcategory_ProductCategory_ProductCategoryID" Association="AwModel.FK_ProductSubcategory_ProductCategory_ProductCategoryID">
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="ProductSubcategory" EntitySet="ProductSubcategory" />
+          </AssociationSet>
+          <EntitySet Name="Address" EntityType="AwModel.Address" />
+          <AssociationSet Name="FK_Address_StateProvince_StateProvinceID" Association="AwModel.FK_Address_StateProvince_StateProvinceID">
+            <End Role="StateProvince" EntitySet="StateProvince" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessEntityAddress_Address_AddressID" Association="AwModel.FK_BusinessEntityAddress_Address_AddressID">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="BusinessEntityAddress" EntitySet="BusinessEntityAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address_BillToAddressID" Association="AwModel.FK_SalesOrderHeader_Address_BillToAddressID">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SalesOrderHeader_Address_ShipToAddressID" Association="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CountryRegionCurrency">
@@ -1678,7 +1678,7 @@
           <NavigationProperty Name="SalesOrderHeaderSalesReason" Relationship="AwModel.FK_SalesOrderHeaderSalesReason_SalesOrderHeader_SalesOrderID" FromRole="SalesOrderHeader" ToRole="SalesOrderHeaderSalesReason" />
           <NavigationProperty Name="Address" Relationship="AwModel.FK_SalesOrderHeader_Address_BillToAddressID" FromRole="SalesOrderHeader" ToRole="Address" />
           <NavigationProperty Name="Address1" Relationship="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID" FromRole="SalesOrderHeader" ToRole="Address" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="SalesOrderHeaderSalesReason">
           <Key>
             <PropertyRef Name="SalesOrderID" />
@@ -2094,24 +2094,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Address">
-          <Key>
-            <PropertyRef Name="AddressID" />
-          </Key>
-          <Property Type="Int32" Name="AddressID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="AddressLine2" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="City" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="StateProvinceID" Nullable="false" />
-          <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Type="Geography" Name="SpatialLocation" />
-          <Property Type="Guid" Name="rowguid" Nullable="false" />
-          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
-          <NavigationProperty Name="StateProvince" Relationship="AwModel.FK_Address_StateProvince_StateProvinceID" FromRole="Address" ToRole="StateProvince" />
-          <NavigationProperty Name="BusinessEntityAddress" Relationship="AwModel.FK_BusinessEntityAddress_Address_AddressID" FromRole="Address" ToRole="BusinessEntityAddress" />
-          <NavigationProperty Name="SalesOrderHeader" Relationship="AwModel.FK_SalesOrderHeader_Address_BillToAddressID" FromRole="Address" ToRole="SalesOrderHeader" />
-          <NavigationProperty Name="SalesOrderHeader1" Relationship="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID" FromRole="Address" ToRole="SalesOrderHeader" />
-        </EntityType>
         <EntityType Name="AddressType">
           <Key>
             <PropertyRef Name="AddressTypeID" />
@@ -2145,9 +2127,9 @@
           <Property Type="Int32" Name="AddressTypeID" Nullable="false" />
           <Property Type="Guid" Name="rowguid" Nullable="false" />
           <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Address" Relationship="AwModel.FK_BusinessEntityAddress_Address_AddressID" FromRole="BusinessEntityAddress" ToRole="Address" />
           <NavigationProperty Name="AddressType" Relationship="AwModel.FK_BusinessEntityAddress_AddressType_AddressTypeID" FromRole="BusinessEntityAddress" ToRole="AddressType" />
           <NavigationProperty Name="BusinessEntity" Relationship="AwModel.FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID" FromRole="BusinessEntityAddress" ToRole="BusinessEntity" />
+          <NavigationProperty Name="Address" Relationship="AwModel.FK_BusinessEntityAddress_Address_AddressID" FromRole="BusinessEntityAddress" ToRole="Address" />
         </EntityType>
         <EntityType Name="BusinessEntityContact">
           <Key>
@@ -2266,59 +2248,11 @@
           <Property Type="Int32" Name="TerritoryID" Nullable="false" />
           <Property Type="Guid" Name="rowguid" Nullable="false" />
           <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Address" Relationship="AwModel.FK_Address_StateProvince_StateProvinceID" FromRole="StateProvince" ToRole="Address" />
           <NavigationProperty Name="CountryRegion" Relationship="AwModel.FK_StateProvince_CountryRegion_CountryRegionCode" FromRole="StateProvince" ToRole="CountryRegion" />
           <NavigationProperty Name="SalesTaxRate" Relationship="AwModel.FK_SalesTaxRate_StateProvince_StateProvinceID" FromRole="StateProvince" ToRole="SalesTaxRate" />
           <NavigationProperty Name="SalesTerritory" Relationship="AwModel.FK_StateProvince_SalesTerritory_TerritoryID" FromRole="StateProvince" ToRole="SalesTerritory" />
+          <NavigationProperty Name="Address" Relationship="AwModel.FK_Address_StateProvince_StateProvinceID" FromRole="StateProvince" ToRole="Address" />
         </EntityType>
-        <Association Name="FK_Address_StateProvince_StateProvinceID">
-          <End Type="AwModel.StateProvince" Role="StateProvince" Multiplicity="1" />
-          <End Type="AwModel.Address" Role="Address" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="StateProvince">
-              <PropertyRef Name="StateProvinceID" />
-            </Principal>
-            <Dependent Role="Address">
-              <PropertyRef Name="StateProvinceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_BusinessEntityAddress_Address_AddressID">
-          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="AwModel.BusinessEntityAddress" Role="BusinessEntityAddress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="AddressID" />
-            </Principal>
-            <Dependent Role="BusinessEntityAddress">
-              <PropertyRef Name="AddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesOrderHeader_Address_BillToAddressID">
-          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="AwModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="AddressID" />
-            </Principal>
-            <Dependent Role="SalesOrderHeader">
-              <PropertyRef Name="BillToAddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SalesOrderHeader_Address_ShipToAddressID">
-          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
-          <End Type="AwModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="AddressID" />
-            </Principal>
-            <Dependent Role="SalesOrderHeader">
-              <PropertyRef Name="ShipToAddressID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_BusinessEntityAddress_AddressType_AddressTypeID">
           <End Type="AwModel.AddressType" Role="AddressType" Multiplicity="1" />
           <End Type="AwModel.BusinessEntityAddress" Role="BusinessEntityAddress" Multiplicity="*" />
@@ -2699,6 +2633,72 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Type="Int32" Name="AddressID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AddressLine2" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="StateProvinceID" Nullable="false" />
+          <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Geography" Name="SpatialLocation" />
+          <Property Type="Guid" Name="rowguid" Nullable="false" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
+          <NavigationProperty Name="StateProvince" Relationship="AwModel.FK_Address_StateProvince_StateProvinceID" FromRole="Address" ToRole="StateProvince" />
+          <NavigationProperty Name="BusinessEntityAddress" Relationship="AwModel.FK_BusinessEntityAddress_Address_AddressID" FromRole="Address" ToRole="BusinessEntityAddress" />
+          <NavigationProperty Name="SalesOrderHeader" Relationship="AwModel.FK_SalesOrderHeader_Address_BillToAddressID" FromRole="Address" ToRole="SalesOrderHeader" />
+          <NavigationProperty Name="SalesOrderHeader1" Relationship="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID" FromRole="Address" ToRole="SalesOrderHeader" />
+        </EntityType>
+        <Association Name="FK_Address_StateProvince_StateProvinceID">
+          <End Type="AwModel.StateProvince" Role="StateProvince" Multiplicity="1" />
+          <End Type="AwModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StateProvince">
+              <PropertyRef Name="StateProvinceID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="StateProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessEntityAddress_Address_AddressID">
+          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="AwModel.BusinessEntityAddress" Role="BusinessEntityAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="BusinessEntityAddress">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address_BillToAddressID">
+          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="AwModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="BillToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SalesOrderHeader_Address_ShipToAddressID">
+          <End Type="AwModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="AwModel.SalesOrderHeader" Role="SalesOrderHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="SalesOrderHeader">
+              <PropertyRef Name="ShipToAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2956,21 +2956,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Address">
-            <EntityTypeMapping TypeName="AwModel.Address">
-              <MappingFragment StoreEntitySet="Address">
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
-                <ScalarProperty Name="SpatialLocation" ColumnName="SpatialLocation" />
-                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
-                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
-                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
-                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AddressType">
             <EntityTypeMapping TypeName="AwModel.AddressType">
               <MappingFragment StoreEntitySet="AddressType">
@@ -3174,6 +3159,21 @@
                 <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Address">
+            <EntityTypeMapping TypeName="AwModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="SpatialLocation" ColumnName="SpatialLocation" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

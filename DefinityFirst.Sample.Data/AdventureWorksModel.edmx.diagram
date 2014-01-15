@@ -45,9 +45,11 @@
         <AssociationConnector Association="AwModel.FK_Store_SalesPerson_SalesPersonID" />
         <AssociationConnector Association="AwModel.FK_SalesTerritoryHistory_SalesTerritory_TerritoryID" />
         <AssociationConnector Association="AwModel.FK_SpecialOfferProduct_SpecialOffer_SpecialOfferID" />
+        <EntityTypeShape EntityType="AwModel.Address" Width="1.5" PointX="2.760435368288511" PointY="5.9452729401855136" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_Address_BillToAddressID" />
+        <AssociationConnector Association="AwModel.FK_SalesOrderHeader_Address_ShipToAddressID" />
       </Diagram>
       <Diagram DiagramId="cd896584ee3f4137935ecb272040b80d" Name="Persons" >
-        <EntityTypeShape EntityType="AwModel.Address" Width="1.5" PointX="0.75" PointY="2.75" />
         <EntityTypeShape EntityType="AwModel.AddressType" Width="1.5" PointX="0.75" PointY="11" />
         <EntityTypeShape EntityType="AwModel.BusinessEntity" Width="1.5" PointX="0.75" PointY="7.75" />
         <EntityTypeShape EntityType="AwModel.BusinessEntityAddress" Width="1.5" PointX="3" PointY="7.625" />
@@ -60,8 +62,6 @@
         <EntityTypeShape EntityType="AwModel.PersonPhone" Width="1.5" PointX="8.25" PointY="14.375" />
         <EntityTypeShape EntityType="AwModel.PhoneNumberType" Width="1.5" PointX="6" PointY="19.625" />
         <EntityTypeShape EntityType="AwModel.StateProvince" Width="1.5" PointX="1.5" PointY="18.875" />
-        <AssociationConnector Association="AwModel.FK_Address_StateProvince_StateProvinceID" />
-        <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_Address_AddressID" />
         <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_AddressType_AddressTypeID" />
         <AssociationConnector Association="AwModel.FK_BusinessEntityAddress_BusinessEntity_BusinessEntityID" />
         <AssociationConnector Association="AwModel.FK_BusinessEntityContact_BusinessEntity_BusinessEntityID" />

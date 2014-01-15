@@ -18,7 +18,7 @@ namespace DefinityFirst.Sample.Core.Tests
             Assert.IsNotNull(person);
             Assert.AreEqual(person.PersonId, 10);
             Assert.IsNotNull(person.Phones);
-            Assert.AreEqual(person.Phones.Count, 2);
+            Assert.AreEqual(person.Phones.Count, 1);
         }
     }
 }
