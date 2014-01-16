@@ -1575,8 +1575,8 @@
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
           <NavigationProperty Name="CountryRegionCurrency" Relationship="AwModel.FK_CountryRegionCurrency_Currency_CurrencyCode" FromRole="Currency" ToRole="CountryRegionCurrency" />
-          <NavigationProperty Name="CurrencyRate" Relationship="AwModel.FK_CurrencyRate_Currency_FromCurrencyCode" FromRole="Currency" ToRole="CurrencyRate" />
-          <NavigationProperty Name="CurrencyRate1" Relationship="AwModel.FK_CurrencyRate_Currency_ToCurrencyCode" FromRole="Currency" ToRole="CurrencyRate" />
+          <NavigationProperty Name="FromCurrencyRate" Relationship="AwModel.FK_CurrencyRate_Currency_FromCurrencyCode" FromRole="Currency" ToRole="CurrencyRate" />
+          <NavigationProperty Name="ToCurrencyRate" Relationship="AwModel.FK_CurrencyRate_Currency_ToCurrencyCode" FromRole="Currency" ToRole="CurrencyRate" />
         </EntityType>
         <EntityType Name="CurrencyRate">
           <Key>
@@ -1589,8 +1589,8 @@
           <Property Type="Decimal" Name="AverageRate" Nullable="false" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="EndOfDayRate" Nullable="false" Precision="19" Scale="4" />
           <Property Type="DateTime" Name="ModifiedDate" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Currency" Relationship="AwModel.FK_CurrencyRate_Currency_FromCurrencyCode" FromRole="CurrencyRate" ToRole="Currency" />
-          <NavigationProperty Name="Currency1" Relationship="AwModel.FK_CurrencyRate_Currency_ToCurrencyCode" FromRole="CurrencyRate" ToRole="Currency" />
+          <NavigationProperty Name="FromCurrency" Relationship="AwModel.FK_CurrencyRate_Currency_FromCurrencyCode" FromRole="CurrencyRate" ToRole="Currency" />
+          <NavigationProperty Name="ToCurrency" Relationship="AwModel.FK_CurrencyRate_Currency_ToCurrencyCode" FromRole="CurrencyRate" ToRole="Currency" />
           <NavigationProperty Name="SalesOrderHeader" Relationship="AwModel.FK_SalesOrderHeader_CurrencyRate_CurrencyRateID" FromRole="CurrencyRate" ToRole="SalesOrderHeader" />
         </EntityType>
         <EntityType Name="Customer">

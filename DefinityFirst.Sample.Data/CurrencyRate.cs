@@ -27,8 +27,8 @@ namespace DefinityFirst.Sample.Data
         public decimal EndOfDayRate { get; set; }
         public System.DateTime ModifiedDate { get; set; }
     
-        public virtual Currency Currency { get; set; }
-        public virtual Currency Currency1 { get; set; }
+        public virtual Currency FromCurrency { get; set; }
+        public virtual Currency ToCurrency { get; set; }
         public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
     }
 }

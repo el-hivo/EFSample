@@ -5,8 +5,6 @@ using DefinityFirst.Sample.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DefinityFirst.Core.Services
 {
@@ -72,7 +70,7 @@ namespace DefinityFirst.Core.Services
                          Tax = so.TaxAmt,
                          Total = so.TotalDue
                      })
-                     .Skip(pageNumber - 1) //Paging
+                     .Skip(pageSize * (pageNumber - 1)) //Paging
                      .Take(pageSize)
                      .ToList(); //Materialization
             }

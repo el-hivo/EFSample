@@ -17,8 +17,8 @@ namespace DefinityFirst.Sample.Data
         public Currency()
         {
             this.CountryRegionCurrency = new HashSet<CountryRegionCurrency>();
-            this.CurrencyRate = new HashSet<CurrencyRate>();
-            this.CurrencyRate1 = new HashSet<CurrencyRate>();
+            this.FromCurrencyRate = new HashSet<CurrencyRate>();
+            this.ToCurrencyRate = new HashSet<CurrencyRate>();
         }
     
         public string CurrencyCode { get; set; }
@@ -26,7 +26,7 @@ namespace DefinityFirst.Sample.Data
         public System.DateTime ModifiedDate { get; set; }
     
         public virtual ICollection<CountryRegionCurrency> CountryRegionCurrency { get; set; }
-        public virtual ICollection<CurrencyRate> CurrencyRate { get; set; }
-        public virtual ICollection<CurrencyRate> CurrencyRate1 { get; set; }
+        public virtual ICollection<CurrencyRate> FromCurrencyRate { get; set; }
+        public virtual ICollection<CurrencyRate> ToCurrencyRate { get; set; }
     }
 }

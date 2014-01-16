@@ -1,11 +1,7 @@
-﻿using DefinityFirst.Core.Entities;
-using DefinityFirst.Sample.Data;
+﻿using DefinityFirst.Sample.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
 using DefinityFirst.Core.Entities.Simple;
 using DefinityFirst.Core.Exceptions;
 using DefinityFirst.Core.Entities.Complex;
@@ -91,7 +87,7 @@ namespace DefinityFirst.Core.Services
                 totalRows = query.Count();
 
                 //Paging
-                query = query.Skip(pageNumber - 1).Take(pageSize);
+                query = query.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
                 
                 //Materialization
                 return query.ToList();
@@ -170,8 +166,11 @@ namespace DefinityFirst.Core.Services
 
                 if (prodCat.IsNew())
                 {
-                    dbCategory = new ProductCategory();
-                    dbCategory.rowguid = Guid.NewGuid();
+                    dbCategory = new ProductCategory
+                    {
+                        rowguid = Guid.NewGuid()
+                    };
+
                     db.ProductCategory.Add(dbCategory);
                 }
                 else

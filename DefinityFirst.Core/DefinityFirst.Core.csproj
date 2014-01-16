@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DefinityFirst.Core</RootNamespace>
     <AssemblyName>DefinityFirst.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,8 +51,11 @@
     <Compile Include="Entities\Complex\CategoryBreakdownEntity.cs" />
     <Compile Include="Entities\Complex\PersonEntity.cs" />
     <Compile Include="Entities\Complex\ProductSubCategoryEntity.cs" />
+    <Compile Include="Entities\Listings\AddressEntityListItem.cs" />
     <Compile Include="Entities\Listings\ProductSalesSummaryItem.cs" />
     <Compile Include="Entities\Simple\AddressEntity.cs" />
+    <Compile Include="Entities\Simple\CurrencyEntity.cs" />
+    <Compile Include="Entities\Simple\CurrencyRateEntity.cs" />
     <Compile Include="Entities\Simple\PhoneNumberEntity.cs" />
     <Compile Include="Entities\Simple\ProductCategoryEntity.cs" />
     <Compile Include="Entities\Simple\ProductEntity.cs" />
@@ -60,9 +64,13 @@
     <Compile Include="Entities\Simple\ProductInfoEntity.cs" />
     <Compile Include="Entities\Simple\SalesOrderItemEntity.cs" />
     <Compile Include="Entities\Simple\SimpleEntity.cs" />
+    <Compile Include="Exceptions\BusinessRuleException.cs" />
     <Compile Include="Exceptions\DuplicateRecordException.cs" />
     <Compile Include="Exceptions\RecordDoesNotExistException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AddressService.cs" />
+    <Compile Include="Services\CreditCardService.cs" />
+    <Compile Include="Services\CurrencyService.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\ProductionService.cs" />
     <Compile Include="Services\SalesService.cs" />
